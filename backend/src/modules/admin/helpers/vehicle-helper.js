@@ -34,6 +34,7 @@ class VehicleHelper {
       await addVehicleToTypesense({
         id: vehicle.id,
         name: vehicle.name,
+        primaryImageUrl: "http://localhost:9000/test/vehicle/sf%2080/primary/sf%2090%201.webp",
       })
       return vehicle;
     } catch (error) {

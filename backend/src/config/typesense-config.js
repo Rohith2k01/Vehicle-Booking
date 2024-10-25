@@ -127,6 +127,7 @@ const createSchema = async () => {
     fields: [
       { name: 'id', type: 'string', facet: false }, // Vehicle ID
       { name: 'name', type: 'string', facet: false }, // Vehicle name
+    
     ],
   };
 
@@ -147,6 +148,7 @@ const addVehicleToTypesense = async (vehicle) => {
   const document = {
     id: vehicle.id,
     name: vehicle.name, // Only the vehicle name is added
+  
   };
 
   try {
