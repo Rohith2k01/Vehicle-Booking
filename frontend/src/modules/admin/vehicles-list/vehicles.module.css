@@ -1,0 +1,183 @@
+/* .mainDiv{
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+}
+
+.vehicleCard {
+  width: 300px;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.displayImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.scrollButton {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 8px;
+}
+
+.vehicleInfo {
+  display: flex;
+  padding: 5px 5px;
+  border: 0.5px solid rgba(0, 0, 0, 0.097);
+  justify-content: space-between;
+  margin-top: 12px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.019);
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+}
+
+.cardActions{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+} */
+
+
+
+/* components/VehicleList.module.css */
+
+.mainDiv {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.vehicleCard {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vehicleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.scrollButton:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.scrollButton:nth-child(1) {
+  left: 10px; /* Left button */
+}
+
+.scrollButton:nth-child(3) {
+  right: 10px; /* Right button */
+}
+
+.displayImage {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.vehicleInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+}
+
+.detailItem svg {
+  margin-right: 5px;
+  color: #007bff; /* Icon color */
+}
+
+.cardActions {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.cardActions .ant-btn {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cardActions .ant-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.cardActions .ant-btn.danger:hover {
+  background-color: #ff4d4f;
+}
+
+.cardActions .ant-btn.circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+
+
+  

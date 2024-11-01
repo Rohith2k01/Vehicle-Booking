@@ -1,0 +1,42 @@
+/* pages/Dashboard.module.css */
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .bannerContainer {
+    width: 100%;
+    overflow: hidden; /* Ensures no overflow issues */
+  }
+  
+  .bannerImage {
+    width: 100%; /* Make the banner image responsive */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area without stretching */
+  }
+  
+  /* button {
+    padding: 0.5rem 1rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  } */
+  

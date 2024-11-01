@@ -1,0 +1,67 @@
+/* components/Navbar.module.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 1rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoImage {
+    height: 40px;
+    width: auto;
+  }
+
+  .logoText {
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2px;
+  }
+  
+  .navLinks a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navLinks a:hover {
+    text-decoration: underline;
+  }
+  
+  .profile {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .profileIcon {
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .dropdownMenu a {
+    display: block;
+    color: black;
+    padding: 0.5rem;
+    text-decoration: none;
+  }
+  
+  .dropdownMenu a:hover {
+    background-color: #f0f0f0;
+  }
+  

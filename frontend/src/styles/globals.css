@@ -1,0 +1,215 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input, textarea {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+  }
+  
+  button {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  } */
+
+
+
+  /* Global styles */
+:root {
+  --primary-color: #1e88e5;
+  --dark-bg: #1a1a2e;
+  --light-text: #f1f1f1;
+  --card-bg: #2a2a40;
+  --card-hover-bg: #3b3b58;
+  --border-radius: 10px;
+  --transition-time: 0.3s ease;
+}
+
+
+.mainDiv {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.title {
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.vehicleCard {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-time), transform var(--transition-time);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vehicleCard:hover {
+  background-color: var(--card-hover-bg);
+  transform: translateY(-5px);
+}
+
+.imageContainer {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  background-color: #0a0a23;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.displayImage {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--light-text);
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.scrollButton:hover {
+  background-color: var(--primary-color);
+}
+
+.scrollButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.scrollButton:nth-child(1) {
+  left: 10px;
+}
+
+.scrollButton:nth-child(3) {
+  right: 10px;
+}
+
+.vehicleInfo {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: var(--card-bg);
+  color: var(--light-text);
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: var(--card-bg);
+}
+
+.cardActions button {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--light-text);
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.2rem;
+  transition: background-color var(--transition-time);
+}
+
+.cardActions button:hover {
+  background-color: #0059b3;
+}
+
+/* Modals */
+.ant-modal {
+  background-color: var(--card-bg);
+  color: var(--light-text);
+}
+
+.ant-modal-header {
+  background-color: var(--primary-color);
+}
+
+.ant-modal-title {
+  color: var(--light-text);
+}
+
+.ant-modal-footer {
+  border-top: none;
+}
+
+/* Input and Select Styles in Modal */
+.ant-input,
+.ant-select-selector {
+  background-color: var(--card-bg);
+  color: var(--light-text);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+}
+
+.ant-input:focus,
+.ant-select-selector:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.2);
+}
+
+.ant-btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.ant-btn-primary:hover {
+  background-color: #0059b3;
+}
+
+
+
+
+
+
