@@ -1,5 +1,4 @@
-   /* styles/Login.module.css */
-.container {
+.loginContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,19 +13,23 @@
     color: #ffffff; /* White text color for title */
 }
 
-.form {
+.loginForm {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Adjust to 100% to align with max-width */
-    max-width: 400px; /* Limit width */
+    width: 100%;
+    max-width: 400px;
     background-color: #1e1e2f; /* Dark background for the form */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.inputGroup {
+    margin-bottom: 1rem;
+}
+
 .input {
-    margin: 0.5rem 0;
+    width: 100%;
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #444; /* Darker border */
@@ -35,6 +38,7 @@
     color: #e0e0e0; /* Light text color for input */
     outline: none;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .input::placeholder {
@@ -48,7 +52,8 @@
     box-shadow: 0px 0px 5px rgba(108, 99, 255, 0.5);
 }
 
-.button {
+.submitButton {
+    width: 100%;
     padding: 10px;
     font-size: 1rem;
     color: white;
@@ -57,10 +62,15 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
-.button:hover {
+.submitButton:hover {
     background-color: #5b53e6; /* Darker button color on hover */
+}
+
+.submitButton:disabled {
+    background-color: #999;
 }
 
 .error {

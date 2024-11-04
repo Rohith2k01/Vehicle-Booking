@@ -22,14 +22,14 @@ const Navbar: React.FC = () => {
       <div className={styles.navLinks}>
         <Link href="/">Home</Link>
         <Link href="/">Dashboard</Link>
-        <Link href="/">Contact</Link>
+        <Link href="/user/RegistrationForm">User Register</Link>
       </div>
       <div className={styles.profile}>
         <FaUserCircle className={styles.profileIcon} onClick={handleDropdownToggle} />
         {dropdownOpen && (
           <div className={styles.dropdownMenu}>
-            <Link href="/user/RegistrationForm">Sign In</Link>
-            <Link href="/user/RegistrationForm">Sign Out</Link>
+            <Link href="/user/Login">Sign In</Link>
+            <Link href="/user/Login">Sign Out</Link>
           </div>
         )}
       </div>

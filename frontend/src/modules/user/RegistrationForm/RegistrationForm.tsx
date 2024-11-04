@@ -81,7 +81,7 @@ const RegistrationForm = () => {
       const { data } = await registerUser({ variables: { input: formData } });
       if (data?.registerUser?.status === 'success') {
         alert('Registration successful!');
-        router.push('/'); // Navigate to the target page, e.g., "/dashboard"
+        router.push('/user/Login'); // Navigate to the target page, e.g., "/dashboard"
       } else {
         alert(data?.registerUser?.message || 'Registration failed');
       }

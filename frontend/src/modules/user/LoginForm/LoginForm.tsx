@@ -1,76 +1,85 @@
-// pages/Login.tsx
 "use client";
 import { useState } from 'react';
-import { useMutation, gql } from '@apollo/client';
-import client from '../../../lib/apollo-client';
-import styles from '../LoginForm/LoginForm.module.css'; // Importing CSS module
+import { useMutation } from '@apollo/client';
+import { useRouter } from 'next/navigation'; // Updated import for use with App Router
+import { LOGIN_USER } from '../../../graphql/admin-mutations/login';
+import client from '../../../lib/apollo-client'; // Your Apollo Client instance
+import styles from './LoginForm.module.css'; // Optional: Create styles for this component
 
-// Define the GraphQL mutation for login
-const LOGIN_MUTATION = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        id
-        email
-      }
-    }
-  }
-`;
+const LoginPage = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-const Login = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [error, setError] = useState<string>('');
-
-  const [login] = useMutation(LOGIN_MUTATION, {
+  // Mutation hook for login
+  const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     client,
     onCompleted: (data) => {
-      localStorage.setItem('token', data.login.token);
-      window.location.href = '/dashboard'; // Redirect to the dashboard or homepage
+      if (data.loginUser.status === 'success') {
+        const { token, data: userData } = data.loginUser;
+        // Store token in localStorage or cookies as needed
+        localStorage.setItem('token', token);
+        // Navigate to the dashboard or home page
+        router.push('/');
+      } else {
+        setError(data.loginUser.message);
+      }
     },
-    onError: (err) => {
-      setError(err.message);
+    onError: (error) => {
+      setError('An error occurred during login. Please try again.');
+      console.error(error);
     },
   });
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  // Form submit handler
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError(null); // Reset any existing errors
 
-    login({ variables: { email, password } });
+    if (!email || !password) {
+      setError('Please fill in both email and password.');
+      return;
+    }
+
+    await loginUser({ variables: { email, password } });
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Login</h1>
-      <form onSubmit={handleLogin} className={styles.form}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={styles.input}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={styles.input}
-          required
-        />
+    <div className={styles.loginContainer}>
+    <h2 className={styles.title}>Login</h2>
+    <form onSubmit={handleSubmit} className={styles.loginForm}>
         {error && <p className={styles.error}>{error}</p>}
-        <button type="submit" className={styles.button}>Login</button>
-      </form>
-    </div>
+        <div className={styles.inputGroup}>
+            <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={styles.input}
+                required
+            />
+        </div>
+        <div className={styles.inputGroup}>
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className={styles.input}
+                required
+            />
+        </div>
+        <button type="submit" className={styles.submitButton} disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
+        </button>
+    </form>
+</div>
+
   );
 };
 
-export default Login;
-
-
+export default LoginPage;
 
 
 
